@@ -1,4 +1,4 @@
-package com.spring4.controller;
+package com.moviecatalog.controller;
 
 import java.io.IOException;
 

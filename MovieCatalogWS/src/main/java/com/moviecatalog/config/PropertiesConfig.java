@@ -1,4 +1,4 @@
-package com.spring4.config;
+package com.moviecatalog.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.spring4.entity;
+package com.moviecatalog.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -11,15 +11,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PERSON")
-public class Person implements Serializable {
+@Table(name = "MOVIE")
+public class Movie implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "PERSON_ID")
+	@Column(name = "MOVIE_ID")
 	private Long id;
 
+	/* TODO: */
+	
+	
 	@Column(name = "FIRST_NAME")
 	private String firstName;
 

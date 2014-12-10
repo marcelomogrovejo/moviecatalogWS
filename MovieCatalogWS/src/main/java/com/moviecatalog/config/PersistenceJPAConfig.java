@@ -1,4 +1,4 @@
-package com.spring4.config;
+package com.moviecatalog.config;
 
 import java.util.Properties;
 
@@ -45,7 +45,7 @@ public class PersistenceJPAConfig {
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		factoryBean.setDataSource(restDataSource());
 		factoryBean
-				.setPackagesToScan(new String[] { "com.spring4.entity" });
+				.setPackagesToScan(new String[] { "com.moviecatalog.entity" });
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter() {
 

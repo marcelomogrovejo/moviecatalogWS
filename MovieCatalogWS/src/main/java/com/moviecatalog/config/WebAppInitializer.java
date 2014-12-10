@@ -1,4 +1,4 @@
-package com.spring4.config;
+package com.moviecatalog.config;
 
 import java.util.EnumSet;
 
@@ -14,7 +14,7 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import com.spring4.controller.CorsFilter;
+import com.moviecatalog.controller.CorsFilter;
 
 public class WebAppInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext servletContext) throws ServletException {

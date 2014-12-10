@@ -1,4 +1,4 @@
-package com.spring4.controller;
+package com.moviecatalog.controller;
 
 import java.util.List;
 
@@ -12,53 +12,53 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring4.entity.Person;
-import com.spring4.service.IPersonService;
+import com.moviecatalog.entity.Movie;
+import com.moviecatalog.service.IMovieService;
 
 @RestController
-@RequestMapping("/data/person")
-public class PersonController {
+@RequestMapping("/data/movie")
+public class MovieController {
 
 	@Autowired
-	private IPersonService personService;
+	private IMovieService movieService;
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, 
             produces = MediaType.APPLICATION_JSON_VALUE)
-	public Person getPersonDetail(@PathVariable long id) {
-		Person p = personService.getPersonDetail(id);
-		return p;
+	public Movie getMovieDetail(@PathVariable long id) {
+		Movie m = movieService.getMovieDetail(id);
+		return m;
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.GET, 
             produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Person> getPersons() {
-		List<Person> persons = personService.getPersons();
-		return persons;
+	public List<Movie> getMovies() {
+		List<Movie> movies = movieService.getMovies();
+		return movies;
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST, 
 			consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-	public Person add(@RequestBody Person person) {
-		Person p = personService.saveOrUpdate(person);
-		return p;
+	public Movie add(@RequestBody Movie movie) {
+		Movie m = movieService.saveOrUpdate(movie);
+		return m;
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.OK)
 	public void delete(@PathVariable long id) {
-		Person p = new Person();
-		p.setId(id);
-		personService.removePerson(p);
+		Movie m = new Movie();
+		m.setId(id);
+		movieService.removeMovie(m);
 	}
 	
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, 
 			consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
-    public void updatePerson(@PathVariable long id, @RequestBody Person person) {
-    	person.setId(id);
-    	personService.saveOrUpdate(person);
+    public void updateMovie(@PathVariable long id, @RequestBody Movie movie) {
+    	movie.setId(id);
+    	movieService.saveOrUpdate(movie);
     }
 
 	
