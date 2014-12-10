@@ -32,9 +32,16 @@ public class MovieService implements IMovieService {
 		if (movie.getId() != null) {
 			// Update
 			movieCrud = movieRepository.findOne(movie.getId());
-			movieCrud.setFirstName(movie.getFirstName() != null? movie.getFirstName() : movieCrud.getFirstName());
-			movieCrud.setLastName(movie.getLastName() != null? movie.getLastName() : movieCrud.getLastName());
-			movieCrud.setBirthday(movie.getBirthday() != null? movie.getBirthday() : movieCrud.getBirthday());
+			movieCrud.setTitle(movie.getTitle() != null? movie.getTitle() : movieCrud.getTitle());
+			movieCrud.setOverview(movie.getOverview() != null? movie.getOverview() : movieCrud.getOverview());
+			movieCrud.setPicture(movie.getPicture() != null? movie.getPicture() : movieCrud.getPicture());
+			movieCrud.setTrailer(movie.getTrailer() != null? movie.getTrailer() : movieCrud.getTrailer());
+			movieCrud.setRanking(movie.getRanking() != null? movie.getRanking() : movieCrud.getRanking());
+			movieCrud.setDate(movie.getDate() != null? movie.getDate() : movieCrud.getDate());
+			movieCrud.setYear(movie.getYear() != null? movie.getYear() : movieCrud.getYear());
+			movieCrud.setCountry(movie.getCountry() != null? movie.getCountry() : movieCrud.getCountry());
+			movieCrud.setDirector(movie.getDirector() != null? movie.getDirector() : movieCrud.getDirector());
+			movieCrud.setFormat(movie.getFormat() != null? movie.getFormat() : movieCrud.getFormat());
 		} else {
 			// Create
 			movieCrud = movie;

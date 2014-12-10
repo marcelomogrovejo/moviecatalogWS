@@ -103,7 +103,13 @@ public class PersistenceJPAConfig {
 
 			{
 				// use this to inject additional properties in the EntityManager
-				setProperty("hibernate.hbm2ddl.auto", "update");
+				/* Possible values for hibernate.hbm2ddl.auto:
+				 * validate: validate the schema, makes no changes to the database.
+				 * update: update the schema.
+				 * create: creates the schema, destroying previous data.
+				 * create-drop: drop the schema at the end of the session.
+				 */
+				setProperty("hibernate.hbm2ddl.auto", "validate");
 				setProperty("hibernate.show_sql", "true");
 			}
 		};
