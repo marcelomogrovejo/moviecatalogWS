@@ -12,53 +12,53 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.moviecatalog.entity.Movie;
-import com.moviecatalog.service.IMovieService;
+import com.moviecatalog.entity.Year;
+import com.moviecatalog.service.IYearService;
 
 @RestController
-@RequestMapping("/data/movie")
-public class MovieController {
+@RequestMapping("/data/year")
+public class YearController {
 
 	@Autowired
-	private IMovieService movieService;
+	private IYearService yearService;
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, 
             produces = MediaType.APPLICATION_JSON_VALUE)
-	public Movie getMovieDetail(@PathVariable long id) {
-		Movie m = movieService.getMovieDetail(id);
-		return m;
+	public Year getYear(@PathVariable long id) {
+		Year y = yearService.getYear(id);
+		return y;
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.GET, 
             produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Movie> getMovies() {
-		List<Movie> movies = movieService.getMovies();
-		return movies;
+	public List<Year> getYears() {
+		List<Year> years = yearService.getYears();
+		return years;
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST, 
 			consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-	public Movie add(@RequestBody Movie movie) {
-		Movie m = movieService.saveOrUpdate(movie);
-		return m;
+	public Year add(@RequestBody Year year) {
+		Year y = yearService.saveOrUpdate(year);
+		return y;
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.OK)
 	public void delete(@PathVariable long id) {
-		Movie m = new Movie();
-		m.setId(id);
-		movieService.removeMovie(m);
+		Year y = new Year();
+		y.setId(id);
+		yearService.removeYear(y);
 	}
 	
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, 
 			consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
-    public void updateMovie(@PathVariable long id, @RequestBody Movie movie) {
-    	movie.setId(id);
-    	movieService.saveOrUpdate(movie);
+    public void updateYear(@PathVariable long id, @RequestBody Year year) {
+    	year.setId(id);
+    	yearService.saveOrUpdate(year);
     }
 
 }
