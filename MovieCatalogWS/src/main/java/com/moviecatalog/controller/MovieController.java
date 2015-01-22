@@ -31,7 +31,6 @@ public class MovieController {
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.GET, 
-			consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Movie> getMovies() {
 		List<Movie> movies = movieService.getMovies();
